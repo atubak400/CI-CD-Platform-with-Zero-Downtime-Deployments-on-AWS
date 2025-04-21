@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: power3425/my-app:latest 
+          image: 136600023723.dkr.ecr.us-east-1.amazonaws.com/my-app:latest 
           ports:
             - containerPort: 3000         
           resources:
@@ -26,3 +26,6 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+          env:
+            - name: FORCE_REDEPLOY
+              value: "v1"
