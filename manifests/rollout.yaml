@@ -19,6 +19,7 @@ spec:
       labels:
         app: my-app
     spec:
+      serviceAccountName: my-app-sa
       containers:
         - name: my-app
           image: 136600023723.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
