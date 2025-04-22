@@ -1,17 +1,10 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
-metadata:
-  name: my-app
-  labels:
-    app: my-app
 spec:
   replicas: 2
   strategy:
-    canary:
-      steps:
-        - setWeight: 20
-        - pause: { duration: 30s }
-        - setWeight: 100
+    blueGreen:
+      activeService: my-app-service
+      previewService: my-app-preview
+      autoPromotionEnabled: false
   selector:
     matchLabels:
       app: my-app
